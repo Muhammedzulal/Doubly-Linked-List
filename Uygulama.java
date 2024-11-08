@@ -3,24 +3,49 @@ package LinkedList2;
 public class Uygulama {
     public static void main(String[] args) {
         Liste liste = new Liste();
-        liste.yazdir();
-        liste.basaEkle(1);
-        liste.yazdir();
-        liste.sonaEkle(2);
-        liste.yazdir();
-        liste.sonaEkle(3);
-        liste.yazdir();
-        liste.basaEkle(0);
-        liste.yazdir();
-        liste.arayaEkle(3, 25);
-        liste.yazdir();
-        liste.arayaEkle(0, -1);
-        liste.yazdir();
-        liste.arayaEkle(6, 44);
-        liste.yazdir();
-        liste.bastanSil();
-        liste.yazdir();
-        liste.sondanSil();
-        liste.yazdir();
+        Scanner sc = new Scanner(System.in);
+        int choose = -1;
+        while (choose != 0) {
+            System.out.println("1-Başa ekle");
+            System.out.println("2-Sona ekle");
+            System.out.println("3-Araya ekle");
+            System.out.println("4-Baştan sil");
+            System.out.println("5-Sondan sil");
+            System.out.println("6-Aradan sil");
+            System.out.println("0-Çıkış");
+            System.out.println();
+            System.out.print("Seçim :");
+            choose = sc.nextInt();
+            if (choose == 1) {
+                System.out.print("Data :");
+                int data = sc.nextInt();
+                liste.basaEkle(data);
+            } else if (choose == 2) {
+                System.out.print("Data :");
+                int data = sc.nextInt();
+                liste.sonaEkle(data);
+            } else if (choose == 3) {
+                System.out.print("Index :");
+                int index = sc.nextInt();
+                System.out.print("Data :");
+                int data = sc.nextInt();
+                liste.arayaEkle(index, data);
+            } else if (choose == 4) {
+                liste.bastanSil();
+            } else if (choose == 5) {
+                liste.sondanSil();
+            } else if (choose == 6) {
+                System.out.print("Index :");
+                int index = sc.nextInt();
+                liste.aradanSil(index);
+            } else {
+                if (choose != 0)
+                    System.out.println("Hatalı seçim!!!!");
+            }
+            System.out.println();
+            liste.yazdir();
+            System.out.println();
+        }
+        sc.close();
     }
 }
